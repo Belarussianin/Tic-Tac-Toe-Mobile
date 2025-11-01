@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs'
+    id 'org.jetbrains.kotlin.plugin.compose' version "2.1.20"
 }
 
 android {
@@ -31,14 +32,14 @@ android {
         kotlinCompilerExtensionVersion compose_version
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
     }
     kotlinOptions {
-        jvmTarget = '11'
+        jvmTarget = '21'
     }
     java {
-        toolchain.languageVersion.set(JavaLanguageVersion.of(11))
+        toolchain.languageVersion.set(JavaLanguageVersion.of(21))
     }
 }
 
@@ -64,7 +65,7 @@ dependencies {
     api composeBom
     androidTestImplementation composeBom
     //DEPRECATED api "com.google.android.material:compose-theme-adapter:$rootProject.composeThemeAdapter_version"
-    api "com.google.accompanist:accompanist-themeadapter-material:0.35.0-alpha"
+    api "com.google.accompanist:accompanist-themeadapter-material:0.36.0"
     api "androidx.compose.material:material"
     api "androidx.compose.ui:ui-tooling-preview"
     debugImplementation "androidx.compose.ui:ui-tooling"
