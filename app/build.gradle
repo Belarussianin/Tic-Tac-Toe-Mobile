@@ -7,9 +7,9 @@ plugins {
 }
 
 // Load keystore
-//def keystorePropertiesFile = rootProject.file("keystores\\upload-keystore")
-//def keystoreProperties = new Properties()
-//keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+def keystorePropertiesFile = rootProject.file("keystores\\upload_tic_tac_toe_keystore.jks")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     namespace 'com.belarusianin.tic_tac_toe_mobile'
@@ -19,27 +19,27 @@ android {
         applicationId "com.belarusianin.tic_tac_toe_mobile"
         minSdk rootProject.minSdk_version
         targetSdk rootProject.targetSdk_version
-        versionCode 3
-        versionName "1.2"
+        versionCode 5
+        versionName "1.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-//    signingConfigs {
-//        release {
-//            keyAlias keystoreProperties['keyAlias']
-//            keyPassword keystoreProperties['keyPassword']
-//            storeFile file(keystoreProperties['storeFile'])
-//            storePassword keystoreProperties['storePassword']
-//        }
-//    }
-//    buildTypes {
-//        release {
-//            signingConfig signingConfigs.release
-//            minifyEnabled true
-//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-//        }
-//    }
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file("keystores\\upload_tic_tac_toe_keystore.jks")
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
     buildFeatures {
         viewBinding true
         compose true
