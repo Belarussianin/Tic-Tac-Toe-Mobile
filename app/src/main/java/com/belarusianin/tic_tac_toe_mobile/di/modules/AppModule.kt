@@ -16,7 +16,7 @@ import com.belarusianin.tic_tac_toe_mobile.presentation.tic_tac_toe.viewmodel.Ti
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
-import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
